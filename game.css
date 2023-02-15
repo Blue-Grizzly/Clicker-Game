@@ -1,0 +1,13 @@
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+#screen {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
