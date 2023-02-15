@@ -11,3 +11,27 @@ img {
     width: 100%;
     aspect-ratio: 16/9;
 }
+
+#map{
+    z-index: 1;
+    position: absolute
+}
+
+#Explosion{
+    scale: 0.4;
+    translate: 0 -100%;
+    z-index: 9;
+    position: relative;
+}
+
+.Friendly{
+    scale: 0.2;
+    position: relative;
+}
+
+.Enemy{
+    scale: 0.5;
+    position: absolute;
+    top: 30%;
+    z-index: 9;
+}
