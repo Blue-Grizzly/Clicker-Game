@@ -43,13 +43,12 @@ img {
 }
 
 #Explosion{
-    scale: 0.2;
     z-index: 9;
+    scale: 0.1;
     position: relative;
 }
 
 .Friendly{
-    scale: 0.125;
     position: absolute;
     z-index: 9;
 
@@ -62,13 +61,11 @@ img {
 
 #APC1{
     translate: 0 -20%;
-    scale: 0.1;
     
 }
 
 #APC2{
     translate: -5% -20%;
-    scale: 0.12
 }
 
 #RedCross{
