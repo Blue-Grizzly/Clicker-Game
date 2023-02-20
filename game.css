@@ -28,7 +28,6 @@ img {
     background-image: url("svg-temp/18079.jpg");
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 1;
 }
 
 .UI {
@@ -49,36 +48,18 @@ img {
 }
 
 .Friendly{
-    position: absolute;
-    z-index: 9;
+
+    position: relative;
+
 
 }
 
 .Enemy{
-    position: absolute;
-    z-index: 9;
+
+    position: relative;
+
 }
 
-#APC1{
-    translate: 0 -20%;
-    
-}
-
-#APC2{
-    translate: -5% -20%;
-}
-
-#RedCross{
-    translate: 0 -10%;
-}
-
-#PeaceKeeper{
-    translate: 10% -10%;
-}
-
-#Explosion{
-    translate: 20% -20%;
-}
 
 #time{
     position: absolute;
@@ -101,9 +82,9 @@ img {
     scale: 0.1;
 }
 
-#APC1{
+.movetest{
     offset-path: path("M200,200 C200,1000 2000,0 2000,1000");
-    animation: movetest 3s infinite alternate linear;
+    animation: movetest 5s infinite alternate linear;
 }
 
 @keyframes movetest{
@@ -137,4 +118,31 @@ img {
     100%{
         transform: translate(50%, 100%);
     }
+}
+
+.clicked{
+    animation: clicked;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+
+}
+
+@keyframes clicked{
+    0%{
+        transform: scale(2);
+        opacity: 100%;
+    }
+
+    70%{
+        transform: scale(1);
+        opacity: 100%;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0%
+    }
+
+
 }
