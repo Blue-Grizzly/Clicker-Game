@@ -10,40 +10,39 @@
 <body>
     <div class="screen">
         <div class="game">
-            <div class="background">
-                <img id="map" src="svg-temp\18079.jpg">
+            <div id="map" class="background">
             </div>
             <div class="elements">
 
-                <div id="APC1" class="Enemy">
-                    <img id="APC_sprite_G" src="svg-temp\APC_sprite_G.png">
+                <div id="APC1" class="Enemy hidden movetest2">
+                    <img id="APC_sprite_G" src="svg-temp\APC_sprite_G.svg">
                 </div>
                 
-                <div id="APC2" class="Enemy">
-                    <img id="APC_sprite_T" src="svg-temp\APC_sprite_T.png">
+                <div id="APC2" class="Enemy hidden movetest ">
+                    <img id="APC_sprite_T" src="svg-temp\APC_sprite_T.svg">
                 </div>
                 
-                <div id="RedCross" class="Friendly">
-                    <img id="RedCross_sprite" src="svg-temp\RedCross.png">
+                <div id="RedCross" class="Friendly hidden movetest4">
+                    <img id="RedCross_sprite" src="svg-temp\RedCross.svg">
                 </div>
                 
-                <div id="PeaceKeeper" class="Friendly">
-                    <img id="PeaceKeeper_sprite" src="svg-temp\peacekeeper.png">
+                <div id="PeaceKeeper" class="Friendly hidden movetest3">
+                    <img id="PeaceKeeper_sprite" src="svg-temp\peacekeeper.svg">
                 </div>
                 
-                <div id="Explosion" Class="Effect">
-                    <img id="Effect1_sprite" src="svg-temp\explosion.png">
+                <!-- <div id="Explosion" Class="Effect">
+                    <img id="Effect1_sprite" src="svg-temp\explosion.svg"> -->
                 </div>
             </div>
-            <div class="foreground">
-            </div>
-            <div class="UI">
+             <div class="UI">
                 <div id="score">
-                   <p> score goes here</p>
+                   <p></p>
                 </div>
                 
-                <div id="health">
-                    <img id="healthbar" src="svg-temp/HP.png">
+                <div id="healthbar">
+                    <img id="health1" src="svg-temp/HP.svg">
+                    <img id="health2" src="svg-temp/HP.svg">
+                    <img id="health3" src="svg-temp/HP.svg">
                 </div>
                     
                 <div id="time">
@@ -52,8 +51,12 @@
             </div>
         </div>
         <div class="start"></div>
-        <div class="game_over"></div>
-        <div class="level_complete"></div>
-    </div>
+        <div id="GameOver">
+           <h2>Game Over</h2>
+        </div>
+        <div id="LevelComplete">
+          <h2>Level Complete</h2>
+        </div>
+        <script src="game.js"></script>
 </body>
 </html>
