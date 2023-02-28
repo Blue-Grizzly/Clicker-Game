@@ -6,27 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drone strike</title>
     <link rel="stylesheet" href="game.css"/>
+    <link rel="icon" href="#" type="image/icon"> <!--disables favicon-->
+    <!-- can put a link to an image in href=# above to select that img-->
+    <!-- Create your own favIcon faviconcc -->
 </head>
 <body>
     <div class="screen">
-        <div class="game">
+        <div id="game_id" class="game">
             <div id="map" class="background">
             </div>
             <div class="elements">
 
-                <div id="APC1" class="Enemy hidden movetest2">
+                <div id="APC1_container" class="Enemy">
                     <img id="APC_sprite_G" src="svg-temp\APC_sprite_G.svg">
                 </div>
                 
-                <div id="APC2" class="Enemy hidden movetest ">
+                <div id="APC2_container" class="Enemy">
                     <img id="APC_sprite_T" src="svg-temp\APC_sprite_T.svg">
                 </div>
                 
-                <div id="RedCross" class="Friendly hidden movetest4">
+                <div id="RedCross_container" class="Friendly">
                     <img id="RedCross_sprite" src="svg-temp\RedCross.svg">
                 </div>
                 
-                <div id="PeaceKeeper" class="Friendly hidden movetest3">
+                <div id="PeaceKeeper_container" class="Friendly">
                     <img id="PeaceKeeper_sprite" src="svg-temp\peacekeeper.svg">
                 </div>
                 

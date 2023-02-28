@@ -11,7 +11,7 @@ body {
     height: 100%;
     aspect-ratio: 16/9;
     display: grid;
-    grid: 1/1;
+    grid-area: 1/1;
 }
 .game{
     display: grid;
@@ -26,13 +26,15 @@ body {
     background-image: url("svg-temp/18079.png");
     background-size: 100% 100% ;
     background-repeat: no-repeat;
-    z-index: 1;
     position: relative;
 }
 
 
 .UI {
     display: grid;
+    grid-area: 1/1;
+    grid: 100% 100%;
+    pointer-events: none;
     position: fixed;
     z-index: 3;
 }
@@ -108,7 +110,7 @@ body {
    display: none;
 }
 
-.movetest{
+.movetest1{
     animation-name: movetest1;
     animation-duration: 6s;
     animation-iteration-count: infinite;
@@ -224,7 +226,7 @@ body {
 
 }
 
-.pause{
+.paused{
     animation-play-state: paused;
 
 }
