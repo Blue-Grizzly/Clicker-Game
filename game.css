@@ -11,6 +11,9 @@ body {
   
 }
 
+h2{
+    text-align: center;
+}
 
 #screen {
     aspect-ratio: 16/9;
