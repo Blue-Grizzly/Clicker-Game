@@ -237,8 +237,6 @@ function GameOver(){
     document.querySelector("#gameOver_btn").
         addEventListener("click", GameStarter);
     StopGame();
-    document.querySelector("#Instructions_btn").
-        addEventListener("click", Showinstructions);
 }
 
 function Level_Complete(){
@@ -259,14 +257,6 @@ function startTimer() {
         addEventListener("animationend", Level_Complete);
 }
 
-function Showinstructions(){
-    document.querySelector("#instructionsBox1").textContent = "Destroy the APCs before the time runs out";
-    document.querySelector("#instructionsBox2").textContent = "Destroying 1 APC grants 1 point";
-    document.querySelector("#instructionsBox3").textContent = "But be careful not to hit the PeaceKeepers or the Red Cross";
-    document.querySelector("#instructionsBox4").textContent = "Clicking the Peace Keeper or the Red Cross will lose you 1 HP";
-    document.querySelector("#instructionsBox5").textContent = "Failing to click an enemy before it passes through will also cost 1 HP";
-    document.querySelector("#instructionsBox6").textContent = "Good luck!";
-}
 
 function StopGame(){
     document
