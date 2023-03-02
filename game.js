@@ -232,11 +232,13 @@ function GameOver(){
     document.querySelector("#game").
         classList.add("hidden");
     document.querySelector("#GameOver").
-        classList.remove("hidden");    
+        classList.remove("hidden");
     console.log("Game Over");
     document.querySelector("#gameOver_btn").
         addEventListener("click", GameStarter);
     StopGame();
+    document.querySelector("#Instructions_btn").
+        addEventListener("click", Showinstructions);
 }
 
 function Level_Complete(){
@@ -257,6 +259,20 @@ function startTimer() {
         addEventListener("animationend", Level_Complete);
 }
 
+function Showinstructions(){
+    let instructiontext1 = "Destroy the APCs before the time runs out"
+    let instructiontext2 = "Destroying 1 APC grants 1 point"
+    let instructiontext3 = "But be careful not to hit the PeaceKeepers or the Red Cross"
+    let instructiontext4 = "Clicking the Peace Keeper or the Red Cross will lose you 1 HP"
+    let instructiontext5 = "Failing to click an enemy before it passes through will also cost 1 HP"
+    let instructiontext6 = "Good luck!"
+    document.querySelector("#instructionsBox1").textContent = instructiontext1
+    document.querySelector("#instructionsBox2").textContent = instructiontext2
+    document.querySelector("#instructionsBox3").textContent = instructiontext3
+    document.querySelector("#instructionsBox4").textContent = instructiontext4
+    document.querySelector("#instructionsBox5").textContent = instructiontext5
+    document.querySelector("#instructionsBox6").textContent = instructiontext6
+}
 
 function StopGame(){
     document
