@@ -11,55 +11,75 @@
     <!-- Create your own favIcon faviconcc -->
 </head>
 <body>
-    <div class="screen">
-        <div id="game_id" class="game">
-            <div id="map" class="background">
-            </div>
-            <div class="elements">
-
-                <div id="APC1_container" class="Enemy">
-                    <img id="APC_sprite_G" src="svg-temp\APC_sprite_G.svg">
+    <div id="screen">
+        <div id="game">
+            <div id="Game_Background"></div>
+                 <div id="elements">
+                    <div id="APC1_container" class="Enemy" >
+                        <img id="APC_sprite_G" src="svg-temp\APC_sprite_G.svg">
+                    </div>
+                    <div id="APC2_container" class="Enemy">
+                        <img id="APC_sprite_T" src="svg-temp\APC_sprite_T.svg" draggable="false">
+                    </div>
+                    <div id="RedCross_container" class="Friendly img">
+                        <img id="RedCross_sprite" src="svg-temp\RedCross.svg" draggable="false">
+                    </div>
+                    <div id="PeaceKeeper_container" class="Friendly">
+                        <img id="PeaceKeeper_sprite" src="svg-temp\peacekeeper.svg" draggable="false">
+                    </div>
+                    <!-- <div id="Explosion" Class="Effect">
+                        <img id="Effect1_sprite" src="svg-temp\explosion.svg"> -->
                 </div>
-                
-                <div id="APC2_container" class="Enemy">
-                    <img id="APC_sprite_T" src="svg-temp\APC_sprite_T.svg">
-                </div>
-                
-                <div id="RedCross_container" class="Friendly">
-                    <img id="RedCross_sprite" src="svg-temp\RedCross.svg">
-                </div>
-                
-                <div id="PeaceKeeper_container" class="Friendly">
-                    <img id="PeaceKeeper_sprite" src="svg-temp\peacekeeper.svg">
-                </div>
-                
-                <!-- <div id="Explosion" Class="Effect">
-                    <img id="Effect1_sprite" src="svg-temp\explosion.svg"> -->
-                </div>
-            </div>
-             <div class="UI">
-                <div id="score">
-                   <p></p>
-                </div>
-                
-                <div id="healthbar">
-                    <img id="health1" src="svg-temp/HP.svg">
-                    <img id="health2" src="svg-temp/HP.svg">
-                    <img id="health3" src="svg-temp/HP.svg">
-                </div>
+                <div id="UI">
+                    <div id="score">
+                    <p></p>
+                    </div>
                     
-                <div id="time">
-                    <img id="timebar" src="svg-temp/timer.png">
+                    <div id="healthbar">
+                        <img id="health1" src="svg-temp/HP.svg">
+                        <img id="health2" src="svg-temp/HP.svg">
+                        <img id="health3" src="svg-temp/HP.svg">
+                        <img id="health4" src="svg-temp/HP.svg">
+                        <img id="health5" src="svg-temp/HP.svg">
+                        <img id="health6" src="svg-temp/HP.svg">
+                        <img id="health7" src="svg-temp/HP.svg">
+                        <img id="health8" src="svg-temp/HP.svg">
+                        <img id="health9" src="svg-temp/HP.svg">
+                        <img id="health10" src="svg-temp/HP.svg">
+                    </div>
+                        
+                    <div id="timeBar">
+                        <div id="timer_container">
+                            <div id="timer_sprite"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="start"></div>
-        <div id="GameOver">
+        <div id="start">
+            <h2> Drone Strike</h2>
+            <p> Destroy the APCs before the time runs out.</p>
+            <p> But be careful not to hit the PeaceKeepers or the Red Cross</p>
+            <button id="start_btn">Start Game?</button>
+
+        </div>
+        <div id="GameOver" class="hidden">
            <h2>Game Over</h2>
+           <button id="gameOver_btn"> Retry? </button>
         </div>
-        <div id="LevelComplete">
+        <div id="LevelComplete" class="hidden">
           <h2>Level Complete</h2>
-        </div>
-        <script src="game.js"></script>
+          <button id="lvl_complete_btn"> Restart? </button>
+    </div>
+    
+    
+    <audio id="Explosion_Sound" src="Sounds/explosion.mp3"></audio>
+    <audio id="RedCrossSound" src="Sounds/siren.mp3"></audio>
+    <audio id="Music" src="Sounds/BG-Music.mp3"></audio>
+    <audio id="BadClicked1"src="Sounds/scream-crowd.mp3"></audio>
+    <audio id="BadClicked2" src="Sounds/scream-man.mp3"></audio>
+
+    <script src="game.js"></script>
+
 </body>
 </html>
