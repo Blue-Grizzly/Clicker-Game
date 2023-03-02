@@ -108,7 +108,16 @@ function GoodClicked() {
     document.querySelector("#Explosion_Sound").currentTime = 0;
     document.querySelector("#Explosion_Sound").play(); 
   }
-
+  
+  function GoodGone() {
+    let Good = this;
+    Good.removeEventListener("animationend", GoodGone);
+    Good.querySelector("img").classList.remove("clicked");
+    Good.classList.remove("paused");
+    Good.addEventListener("click", GoodClicked);
+    ObjectReset.call(this);
+  }
+  
   function BadClicked() {
     console.log("Click Bad");
     let Bad = this;
@@ -128,14 +137,6 @@ function GoodClicked() {
     ObjectReset.call(this);
   }
 
-  function GoodGone() {
-    let Good = this;
-    Good.removeEventListener("animationend", GoodGone);
-    Good.querySelector("img").classList.remove("clicked");
-    Good.classList.remove("paused");
-    Good.addEventListener("click", GoodClicked);
-    ObjectReset.call(this);
-  }
   
   function ObjectReset(){
     let Thing = this;
