@@ -25,7 +25,7 @@ body {
 
 #Game_Background{
     grid-area: 1/1;
-    background-image: url("svg-temp/18079.png");
+    background-image: url("sprites/18079.png");
 
 }
 

@@ -117,7 +117,7 @@ function GoodClicked() {
     Good.addEventListener("click", GoodClicked);
     ObjectReset.call(this);
   }
-  
+
   function BadClicked() {
     console.log("Click Bad");
     let Bad = this;
@@ -126,6 +126,8 @@ function GoodClicked() {
     Bad.querySelector("img").classList.add("clicked");
     Bad.addEventListener("animationend", BadGone);
     PlayerDamage();
+    document.querySelector("#Explosion_Sound").currentTime = 0;
+    document.querySelector("#Explosion_Sound").play();
   }
   
   function BadGone() {
