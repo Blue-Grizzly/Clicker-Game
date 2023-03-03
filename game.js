@@ -8,17 +8,16 @@ let HealthPoints = 0;
 function StartScreen(){
     console.log("start");
     document.querySelector("#start_btn").
-        addEventListener("click", GameStarter);    
+        addEventListener("click", screenSwitch1);    
 }
 
-function GameStarter() {
-    document.querySelector("#lvl_complete_btn").
-        removeEventListener("click", GameStarter);
-    document.querySelector("#gameOver_btn").
-        removeEventListener("click", GameStarter);
-    document.querySelector("#start_btn").
-        removeEventListener("click", GameStarter);    
-
+function GameStarter() {   
+    document.querySelector("#start").
+        addEventListener("animationend", GameStarter);
+    document.querySelector("#LevelComplete").
+        addEventListener("animationend", GameStarter);
+    document.querySelector("#GameOver").
+        addEventListener("animationend", GameStarter);
     points = 0;
     HealthPoints = 10;
 
@@ -31,10 +30,22 @@ function GameStarter() {
     document.querySelector("#Music").currentTime = 0;
     document.querySelector("#Music").play();  
 
-    document.querySelector("#game").classList.remove("hidden");
-    document.querySelector("#start").classList.add("hidden");
-    document.querySelector("#LevelComplete").classList.add("hidden");
-    document.querySelector("#GameOver").classList.add("hidden");
+    document.querySelector("#game").
+        classList.remove("hidden");
+    document.querySelector("#start").
+        classList.add("hidden");
+    document.querySelector("#LevelComplete").
+        classList.add("hidden");
+    document.querySelector("#GameOver").
+        classList.add("hidden");
+
+
+    document.querySelector("#GameOver").
+        classList.remove("screenSwitch");
+    document.querySelector("#LevelComplete").
+        classList.remove("screenSwitch");
+    document.querySelector("#start").
+        classList.remove("screenSwitch");
 }
 
 
@@ -95,6 +106,32 @@ function listeners(){
 
  }
 
+ function screenSwitch1(){
+    document.querySelector("#start_btn").
+        removeEventListener("click", screenSwitch1);
+    document.querySelector("#start").
+        classList.add("screenSwitch");
+    document.querySelector("#start").
+        addEventListener("animationend", GameStarter);
+ }
+
+ function screenSwitch2(){
+    document.querySelector("#gameOver_btn").
+        removeEventListener("click", screenSwitch2);
+    document.querySelector("#GameOver").
+        classList.add("screenSwitch");
+    document.querySelector("#GameOver").
+        addEventListener("animationend", GameStarter);
+ }
+ function screenSwitch3(){
+    document.querySelector("#lvl_complete_btn").
+        removeEventListener("click", screenSwitch3);
+    document.querySelector("#LevelComplete").
+        classList.add("screenSwitch");
+    document.querySelector("#LevelComplete").
+        addEventListener("animationend", GameStarter);
+ }
+
 
 
 function GoodClicked() {
@@ -123,7 +160,7 @@ function GoodClicked() {
     let Bad = this;
     Bad.removeEventListener("click", BadClicked);
     Bad.classList.add("paused");
-    Bad.querySelector("img").classList.add("clicked");
+    Bad.querySelector("img").classList.add("badclicked");
     Bad.addEventListener("animationend", BadGone);
     PlayerDamage();
     document.querySelector("#Explosion_Sound").currentTime = 0;
@@ -133,7 +170,7 @@ function GoodClicked() {
   function BadGone() {
     let Bad = this;
     Bad.removeEventListener("animationend", BadGone);
-    Bad.querySelector("img").classList.remove("clicked");
+    Bad.querySelector("img").classList.remove("badclicked");
     Bad.classList.remove("paused");
     Bad.addEventListener("click", BadClicked);
     ObjectReset.call(this);
@@ -245,7 +282,7 @@ function GameOver(){
         classList.remove("hidden");
     console.log("Game Over");
     document.querySelector("#gameOver_btn").
-        addEventListener("click", GameStarter);
+        addEventListener("click", screenSwitch2);
     StopGame();
 }
 
@@ -256,7 +293,7 @@ function Level_Complete(){
         classList.remove("hidden");
     console.log("Level Complete");
     document.querySelector("#lvl_complete_btn").
-        addEventListener("click", GameStarter);
+        addEventListener("click", screenSwitch3);
     StopGame();
 }
 
