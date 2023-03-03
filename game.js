@@ -204,6 +204,16 @@ function CheckHealth(){
     }
 }
 
+function pointCheck() {
+    console.log("Time!");
+
+    if (points >= 15) {
+        Level_Complete();
+    } else {
+        GameOver();
+    }
+}
+
 function ResetHealth(){
         document.querySelector("#health1").
             classList.remove("lost_heart");
@@ -254,7 +264,7 @@ function startTimer() {
     document.querySelector("#timer_sprite").
         classList.add("shrink");
     document.querySelector("#timer_sprite").
-        addEventListener("animationend", Level_Complete);
+        addEventListener("animationend", pointCheck);
 }
 
 

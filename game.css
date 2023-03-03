@@ -154,7 +154,7 @@ h2{
 
 .shrink {
     animation-name: shrink_kf;
-    animation-duration: 60s;
+    animation-duration: 30s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
