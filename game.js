@@ -1,31 +1,37 @@
+//=================== Window Load ===========================//
 "use strict";
-window.addEventListener("load", StartScreen);
+window.addEventListener("load", startScreen);
+
+//===================== Variables ==========================//
 
 let points = 0;
 let HealthPoints = 0;
 
+//==================== Start Screen ===========================//
 
-function StartScreen(){
+function startScreen(){
     console.log("start");
     document.querySelector("#start_btn").
         addEventListener("click", screenSwitch1);    
 }
 
-function GameStarter() {   
+//==================== Game Start Functions ===================//
+
+function gameStarter() {   
     document.querySelector("#start").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
     document.querySelector("#LevelComplete").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
     document.querySelector("#GameOver").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
     points = 0;
     HealthPoints = 10;
 
     listeners();
     animationStarter();
-    ResetHealth();
+    resetHealth();
     startTimer();
-    DisplayPoints();
+    displayPoints();
 
     document.querySelector("#Music").currentTime = 0;
     document.querySelector("#Music").play();  
@@ -48,7 +54,28 @@ function GameStarter() {
         classList.remove("screenSwitch");
 }
 
-
+function resetHealth(){
+    document.querySelector("#health1").
+        classList.remove("lost_heart");
+    document.querySelector("#health2").
+        classList.remove("lost_heart");
+    document.querySelector("#health3").
+        classList.remove("lost_heart");
+    document.querySelector("#health4").
+        classList.remove("lost_heart");
+    document.querySelector("#health5").
+        classList.remove("lost_heart");
+    document.querySelector("#health6").
+        classList.remove("lost_heart");
+    document.querySelector("#health7").
+        classList.remove("lost_heart");
+    document.querySelector("#health8").
+        classList.remove("lost_heart");
+    document.querySelector("#health9").
+        classList.remove("lost_heart");
+    document.querySelector("#health10").
+        classList.remove("lost_heart");
+}
 
 function animationStarter(){
 
@@ -72,112 +99,121 @@ function animationStarter(){
 function listeners(){
     document
         .querySelector("#APC1_container")
-        .addEventListener("click", GoodClicked);
+        .addEventListener("mousedown", goodClicked);
     document
         .querySelector("#APC2_container")
-        .addEventListener("click", GoodClicked);
+        .addEventListener("mousedown", goodClicked);
     document
         .querySelector("#RedCross_container")
-        .addEventListener("click", BadClicked);
+        .addEventListener("mousedown", badClicked);
     document
         .querySelector("#PeaceKeeper_container")
-        .addEventListener("click", BadClicked);
+        .addEventListener("mousedown", badClicked);
 
 
     document
         .querySelector("#APC1_container")
-        .addEventListener("animationiteration", ObjectReset);
+        .addEventListener("animationiteration", objectReset);
     document
         .querySelector("#APC2_container")
-        .addEventListener("animationiteration", ObjectReset);
+        .addEventListener("animationiteration", objectReset);
     document
         .querySelector("#RedCross_container")
-        .addEventListener("animationiteration", ObjectReset);
+        .addEventListener("animationiteration", objectReset);
     document
         .querySelector("#PeaceKeeper_container")
-        .addEventListener("animationiteration", ObjectReset);
+        .addEventListener("animationiteration", objectReset);
 
     document
         .querySelector("#APC1_container")
-        .addEventListener("animationiteration", PlayerDamage);
+        .addEventListener("animationiteration", playerDamage);
     document
         .querySelector("#APC2_container")
-        .addEventListener("animationiteration", PlayerDamage);    
+        .addEventListener("animationiteration", playerDamage);    
 
  }
 
- function screenSwitch1(){
+ function startTimer() {
+    document.querySelector("#timer_sprite").
+        classList.add("shrink");
+    document.querySelector("#timer_sprite").
+        addEventListener("animationend", pointCheck);
+}
+
+//====================== Screen Transitions ===================//
+
+function screenSwitch1(){
     document.querySelector("#start_btn").
         removeEventListener("click", screenSwitch1);
     document.querySelector("#start").
         classList.add("screenSwitch");
     document.querySelector("#start").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
  }
 
- function screenSwitch2(){
+function screenSwitch2(){
     document.querySelector("#gameOver_btn").
         removeEventListener("click", screenSwitch2);
     document.querySelector("#GameOver").
         classList.add("screenSwitch");
     document.querySelector("#GameOver").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
  }
- function screenSwitch3(){
+function screenSwitch3(){
     document.querySelector("#lvl_complete_btn").
         removeEventListener("click", screenSwitch3);
     document.querySelector("#LevelComplete").
         classList.add("screenSwitch");
     document.querySelector("#LevelComplete").
-        addEventListener("animationend", GameStarter);
+        addEventListener("animationend", gameStarter);
  }
 
+ //===================== Element Events ==========================//
 
-
-function GoodClicked() {
+function goodClicked() {
     console.log("Click Good");
     let Good = this;
-    Good.removeEventListener("click", GoodClicked);
+    Good.removeEventListener("mousedown", goodClicked);
     Good.classList.add("paused");
     Good.querySelector("img").classList.add("clicked");
-    Good.addEventListener("animationend", GoodGone);
-    GivePoints();
+    Good.addEventListener("animationend", goodGone);
+    givePoints();
     document.querySelector("#Explosion_Sound").currentTime = 0;
     document.querySelector("#Explosion_Sound").play(); 
   }
   
-  function GoodGone() {
+function goodGone() {
     let Good = this;
-    Good.removeEventListener("animationend", GoodGone);
+    Good.removeEventListener("animationend", goodGone);
     Good.querySelector("img").classList.remove("clicked");
     Good.classList.remove("paused");
-    Good.addEventListener("click", GoodClicked);
-    ObjectReset.call(this);
+    Good.addEventListener("mousedown", goodClicked);
+    objectReset.call(this);
   }
 
-  function BadClicked() {
+function badClicked() {
     console.log("Click Bad");
     let Bad = this;
-    Bad.removeEventListener("click", BadClicked);
+    Bad.removeEventListener("mousedown", badClicked);
     Bad.classList.add("paused");
     Bad.querySelector("img").classList.add("badclicked");
-    Bad.addEventListener("animationend", BadGone);
-    PlayerDamage();
+    Bad.addEventListener("animationend", badGone);
+    playerDamage();
     document.querySelector("#Explosion_Sound").currentTime = 0;
     document.querySelector("#Explosion_Sound").play();
   }
   
-  function BadGone() {
+function badGone() {
     let Bad = this;
-    Bad.removeEventListener("animationend", BadGone);
+    Bad.removeEventListener("animationend", badGone);
     Bad.querySelector("img").classList.remove("badclicked");
     Bad.classList.remove("paused");
-    Bad.addEventListener("click", BadClicked);
-    ObjectReset.call(this);
+    Bad.addEventListener("mousedown", badClicked);
+    objectReset.call(this);
   }
 
   
-  function ObjectReset(){
+function objectReset(){
     let Thing = this;
     Thing.classList.remove
     ("movetest1", "movetest2", "movetest3", "movetest4");
@@ -186,31 +222,32 @@ function GoodClicked() {
     Thing.classList.add("movetest"+pos1);
   }
 
+//=================== Player stats Health/Points =====================//
 
-function GivePoints(){
+function givePoints(){
     points++;
     console.log(points);
-    DisplayPoints();
+    displayPoints();
 }
 
-function PlayerDamage(){
-    HealthPoints--;
-    console.log("damage");
-    let Rando = Math.floor(Math.random()*2+1);
-    document.querySelector("#BadClicked"+Rando).currentTime = 0;
-    document.querySelector("#BadClicked"+Rando).play(); 
-    UpdateHealth();
-    CheckHealth();
-}
-
-function DisplayPoints(){
+function displayPoints(){
     let message = `Points: ${points}`;
     console.log(message);
     document.querySelector("#score").
         textContent = message;
 }
 
-function UpdateHealth(){
+function playerDamage(){
+    HealthPoints--;
+    console.log("damage");
+    let Rando = Math.floor(Math.random()*2+1);
+    document.querySelector("#BadClicked"+Rando).currentTime = 0;
+    document.querySelector("#BadClicked"+Rando).play(); 
+    checkHealth();
+    updateHealth();
+}
+
+function updateHealth(){
     console.log(HealthPoints);
     if(HealthPoints == 9){
         document.querySelector("#health1").classList.add("lost_heart");
@@ -235,46 +272,25 @@ function UpdateHealth(){
     }
 }
 
-function CheckHealth(){
+function checkHealth(){
     if (HealthPoints <= 0){
-        GameOver();
+        gameOver();
     }
 }
+
+//=================== End screen related ============================//
 
 function pointCheck() {
     console.log("Time!");
 
     if (points >= 15) {
-        Level_Complete();
+        level_Complete();
     } else {
-        GameOver();
+        gameOver();
     }
 }
 
-function ResetHealth(){
-        document.querySelector("#health1").
-            classList.remove("lost_heart");
-        document.querySelector("#health2").
-            classList.remove("lost_heart");
-        document.querySelector("#health3").
-            classList.remove("lost_heart");
-        document.querySelector("#health4").
-            classList.remove("lost_heart");
-        document.querySelector("#health5").
-            classList.remove("lost_heart");
-        document.querySelector("#health6").
-            classList.remove("lost_heart");
-        document.querySelector("#health7").
-            classList.remove("lost_heart");
-        document.querySelector("#health8").
-            classList.remove("lost_heart");
-        document.querySelector("#health9").
-            classList.remove("lost_heart");
-        document.querySelector("#health10").
-            classList.remove("lost_heart");
-}
-
-function GameOver(){
+function gameOver(){
     // window.clearTimeout(GameTime);
     document.querySelector("#game").
         classList.add("hidden");
@@ -286,7 +302,7 @@ function GameOver(){
     StopGame();
 }
 
-function Level_Complete(){
+function level_Complete(){
     document.querySelector("#game").
         classList.add("hidden");
     document.querySelector("#LevelComplete").
@@ -297,48 +313,40 @@ function Level_Complete(){
     StopGame();
 }
 
-function startTimer() {
-    document.querySelector("#timer_sprite").
-        classList.add("shrink");
-    document.querySelector("#timer_sprite").
-        addEventListener("animationend", pointCheck);
-}
-
-
 function StopGame(){
     document
         .querySelector("#APC1_container")
-        .removeEventListener("click", GoodClicked);
+        .removeEventListener("click", goodClicked);
     document
         .querySelector("#APC2_container")
-        .removeEventListener("click", GoodClicked);
+        .removeEventListener("click", goodClicked);
     document
         .querySelector("#RedCross_container")
-        .removeEventListener("click", BadClicked);
+        .removeEventListener("click", badClicked);
     document
         .querySelector("#PeaceKeeper_container")
-        .addEventListener("click", BadClicked);
+        .addEventListener("click", badClicked);
 
 
     document
         .querySelector("#APC1_container")
-        .removeEventListener("animationiteration", ObjectReset);
+        .removeEventListener("animationiteration", objectReset);
     document
         .querySelector("#APC2_container")
-        .removeEventListener("animationiteration", ObjectReset);
+        .removeEventListener("animationiteration", objectReset);
     document
         .querySelector("#RedCross_container")
-        .removeEventListener("animationiteration", ObjectReset);
+        .removeEventListener("animationiteration", objectReset);
     document
         .querySelector("#PeaceKeeper_container")
-        .removeEventListener("animationiteration", ObjectReset);
+        .removeEventListener("animationiteration", objectReset);
 
     document
         .querySelector("#APC1_container")
-        .removeEventListener("animationiteration", PlayerDamage);
+        .removeEventListener("animationiteration", playerDamage);
     document
         .querySelector("#APC2_container")
-        .removeEventListener("animationiteration", PlayerDamage);    
+        .removeEventListener("animationiteration", playerDamage);    
 
 
     document.querySelector("#APC1_container").
