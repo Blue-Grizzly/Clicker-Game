@@ -358,4 +358,7 @@ function StopGame(){
     document.querySelector("#PeaceKeeper_container").
         classList.remove("movetest1", "movetest2", "movetest3", "movetest4");
 
+        document.querySelector("#Music").pause();  
+
+
 }

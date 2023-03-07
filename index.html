@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drone strike</title>
     <link rel="stylesheet" href="game.css"/>
-    <link rel="icon" href="#" type="image/icon"> <!--disables favicon-->
-    <!-- can put a link to an image in href=# above to select that img-->
-    <!-- Create your own favIcon faviconcc -->
+    <link rel="icon" href="#" type="image/icon">
 </head>
 <body>
     <div id="screen">
@@ -16,7 +14,7 @@
             <div id="Game_Background"></div>
                  <div id="elements">
                     <div id="APC1_container" class="Enemy" >
-                        <img id="APC_sprite_G" src="sprites/APC_sprite_G.png">
+                        <img id="APC_sprite_G" src="sprites/APC_sprite_G.png" draggable="false">
                     </div>
                     <div id="APC2_container" class="Enemy">
                         <img id="APC_sprite_T" src="sprites/APC_sprite_T.png" draggable="false">
@@ -27,8 +25,6 @@
                     <div id="PeaceKeeper_container" class="Friendly">
                         <img id="PeaceKeeper_sprite" src="sprites/peacekeeper.png" draggable="false">
                     </div>
-                    <!-- <div id="Explosion" Class="Effect">
-                        <img id="Effect1_sprite" src="svg-temp\explosion.svg"> -->
                 </div>
                 <div id="UI">
                     <div id="score">
@@ -59,26 +55,35 @@
         <div id="start">
             <h2> Drone Strike</h2>
             <p> Destroy the APCs before the time runs out.</p>
-            <p> Destroying 1 APC grants 1 point.</p>
-            <p> But be careful not to hit the PeaceKeepers or the Red Cross.</p>
-            <p> Clicking the Peace Keeper or the Red Cross will lose you 1 HP.</p>
-            <p> Failing to click an enemy before it passes through will also cost 1 HP.</p>
-            <p> You need to survive with at least 15 points to win.</p>
-            <p> Good luck!</p>
-            <button id="start_btn" class="shake">Start Game?</button>
+           <p> Destroying 1 APC grants 1 point(Green and Tan).</p>
+           <img id="APC_sprite_menu1" src="sprites/APC_sprite_G.png" draggable="false">
+           <img id="APC_sprite_menu2" src="sprites/APC_sprite_T.png" draggable="false">
+           <p> But be careful not to hit the PeaceKeepers or the Red Cross.</p>
+           <p> Clicking the Peace Keeper or the Red Cross will lose you 1 HP.</p>
+           <img id="PeaceKeeper_sprite_menu" src="sprites/peacekeeper.png" draggable="false">
+           <img id="RedCross_sprite_menu" src="sprites/RedCross.png" draggable="false">
+           <p> Failing to click an enemy before it passes through will also cost 1 HP.</p>
+           <p> You need to survive with at least 15 points to win.</p>
+           <p> Good luck!</p>
+           <button id="start_btn" class="shake">Start Game?</button>
+           <a href="http://www.freepik.com">Sprites and background designed by macrovector / Freepik</a>
 
         </div>
         <div id="GameOver" class="hidden">
            <h2>Game Over</h2>
-           <button id="gameOver_btn" class="shake"> Retry? </button>
-           <p> Do You need the instructions again?</p>
            <p> Destroy the APCs before the time runs out.</p>
-           <p> Destroying 1 APC grants 1 point.</p>
+           <p> Destroying 1 APC grants 1 point(Green and Tan).</p>
+           <img id="APC_sprite_menu1" src="sprites/APC_sprite_G.png" draggable="false">
+           <img id="APC_sprite_menu2" src="sprites/APC_sprite_T.png" draggable="false">
            <p> But be careful not to hit the PeaceKeepers or the Red Cross.</p>
            <p> Clicking the Peace Keeper or the Red Cross will lose you 1 HP.</p>
+           <img id="PeaceKeeper_sprite_menu" src="sprites/peacekeeper.png" draggable="false">
+           <img id="RedCross_sprite_menu" src="sprites/RedCross.png" draggable="false">
            <p> Failing to click an enemy before it passes through will also cost 1 HP.</p>
            <p> You need to survive with at least 15 points to win.</p>
            <p> Good luck!</p>
+           <button id="gameOver_btn" class="shake"> Retry? </button>
+           
         </div>
         <div id="LevelComplete" class="hidden">
           <h2>Level Complete</h2>

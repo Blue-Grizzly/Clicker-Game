@@ -14,6 +14,12 @@ body {
 h2{
     text-align: center;
 }
+#start{
+    text-align: center;
+}
+#GameOver{
+    text-align: center;
+}
 
 #screen {
     aspect-ratio: 16/9;
@@ -88,9 +94,7 @@ h2{
 } */
 
 .Friendly{
-
     position: absolute;
-
 
 }
 
@@ -102,6 +106,7 @@ h2{
 #APC2{
     scale: 1.1;
 }
+
 
 .hidden,
 #GameOver.hidden,
@@ -381,4 +386,26 @@ button {
     border: 10px solid #19ca28;
     cursor: pointer;
     border-radius: 10px;
+}
+
+#APC_sprite_menu2{
+    float: inline-end;
+    scale: 0.7;
+}
+#APC_sprite_menu1{
+    position: fixed;
+    scale: 0.6;
+    top: 18vh;
+    right: 45vw;
+}
+#PeaceKeeper_sprite_menu{
+    float: inline-start;
+    scale: 0.7;
+
+}
+#RedCross_sprite_menu{
+    position: fixed;
+    scale: 0.8;
+    top: 53vh;
+    right: 45vw;
 }
